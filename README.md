@@ -1,39 +1,33 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Saly UI Kit
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+A cool branded set of UI components!
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+## Components
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## Package updating
 
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Before updating the package, make sure to generate new assets if any were added:
+```sh
+dart run build_runner build -d
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
+Import the package and use any component:
 ```dart
-const like = 'sample';
+import 'package:saly_ui_kit/saly_ui_kit.dart';
+
+void main() => runApp(
+  MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: Center(
+      child: SalyButton.primary(
+        title: 'Primary button',
+        onTap: () {}
+      ),
+    ),
+  ),
+);
 ```
 
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+Go to [`/example`](/example/) folder to see full kit preview.
