@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:saly_ui_kit/src/layout/bottom_nav_bar/models.dart';
-import 'package:saly_ui_kit/src/layout/bottom_nav_bar/sliding_appbar_core.dart';
+import 'package:saly_ui_kit/src/layout/saly_sliding_app_bar/models.dart';
+import 'package:saly_ui_kit/src/layout/saly_sliding_app_bar/sliding_appbar_core.dart';
 
-class SlidingAppBar extends StatelessWidget {
-  const SlidingAppBar({
+class SalySlidingAppBar extends StatelessWidget {
+  const SalySlidingAppBar({
     required this.items,
     this.height = 80,
     this.buttonsGap = 6,

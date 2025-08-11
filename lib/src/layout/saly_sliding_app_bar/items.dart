@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:saly_ui_kit/src/layout/bottom_nav_bar/models.dart';
+import 'package:saly_ui_kit/src/layout/saly_sliding_app_bar/models.dart';
 
 class AppBarItems extends StatelessWidget {
   const AppBarItems({

@@ -1,10 +1,10 @@
 import 'dart:ui' show lerpDouble;
 
 import 'package:flutter/material.dart';
-import 'package:saly_ui_kit/src/layout/bottom_nav_bar/items.dart';
-import 'package:saly_ui_kit/src/layout/bottom_nav_bar/models.dart';
-import 'package:saly_ui_kit/src/layout/bottom_nav_bar/shrinking_parabolic_curve.dart';
-import 'package:saly_ui_kit/src/layout/bottom_nav_bar/slider_painter.dart';
+import 'package:saly_ui_kit/src/layout/saly_sliding_app_bar/items.dart';
+import 'package:saly_ui_kit/src/layout/saly_sliding_app_bar/models.dart';
+import 'package:saly_ui_kit/src/layout/saly_sliding_app_bar/shrinking_parabolic_curve.dart';
+import 'package:saly_ui_kit/src/layout/saly_sliding_app_bar/slider_painter.dart';
 
 class SlidingAppBarCore extends StatefulWidget {
   const SlidingAppBarCore({
