@@ -8,6 +8,6 @@ extension ThemeDataExt on BuildContext {
   }
 
   FontsExtension get texts {
-    return Theme.of(this).extension<FontsExtension>() ?? FontsExtension.fallback();
+    return Theme.of(this).extension<FontsExtension>() ?? FontsExtension.base();
   }
 }

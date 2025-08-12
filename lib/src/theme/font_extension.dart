@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:saly_ui_kit/saly_ui_kit.dart';
 
 final class FontsExtension extends ThemeExtension<FontsExtension> {
   FontsExtension({
@@ -13,16 +14,70 @@ final class FontsExtension extends ThemeExtension<FontsExtension> {
     required this.small,
   });
 
-  factory FontsExtension.fallback() => FontsExtension(
-    h1: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-    h2: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-    h3: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-    h4: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-    h5: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-    h6: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-    subtitle: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-    body: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
-    small: TextStyle(fontSize: 12, fontWeight: FontWeight.normal),
+  factory FontsExtension.base({ColorThemeExtension? colors}) => FontsExtension(
+    h1: TextStyle(
+      color: colors?.neutralSecondaryS1,
+      fontSize: 72,
+      fontWeight: FontWeight.w800,
+      height: 1.4,
+      letterSpacing: -1.44,
+    ),
+    h2: TextStyle(
+      color: colors?.neutralSecondaryS1,
+      fontSize: 56,
+      fontWeight: FontWeight.w700,
+      height: 1.5,
+      letterSpacing: -1.01,
+    ),
+    h3: TextStyle(
+      color: colors?.neutralSecondaryS1,
+      fontSize: 40,
+      fontWeight: FontWeight.w700,
+      height: 1.5,
+      letterSpacing: -0.64,
+    ),
+    h4: TextStyle(
+      color: colors?.neutralSecondaryS1,
+      fontSize: 32,
+      fontWeight: FontWeight.w600,
+      height: 1.5,
+      letterSpacing: -0.45,
+    ),
+    h5: TextStyle(
+      color: colors?.neutralSecondaryS1,
+      fontSize: 24,
+      fontWeight: FontWeight.w600,
+      height: 1.5,
+      letterSpacing: -0.34,
+    ),
+    h6: TextStyle(
+      color: colors?.neutralSecondaryS1,
+      fontSize: 20,
+      fontWeight: FontWeight.w600,
+      height: 1.6,
+      letterSpacing: -0.12,
+    ),
+    subtitle: TextStyle(
+      color: colors?.neutralSecondaryS1,
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+      height: 1.5,
+      letterSpacing: 0.12,
+    ),
+    body: TextStyle(
+      color: colors?.neutralSecondaryS1,
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
+      height: 1.6,
+      letterSpacing: 0.12,
+    ),
+    small: TextStyle(
+      color: colors?.neutralSecondaryS1,
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+      height: 1.6,
+      letterSpacing: 0.12,
+    ),
   );
 
   final TextStyle h1;
