@@ -101,6 +101,8 @@ class $AssetsImagesGen {
 class SalyAssets {
   const SalyAssets._();
 
+  static const String package = 'saly_ui_kit';
+
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }
@@ -109,6 +111,8 @@ class AssetGenImage {
   const AssetGenImage(this._assetName, {this.size, this.flavors = const {}, this.animation});
 
   final String _assetName;
+
+  static const String package = 'saly_ui_kit';
 
   final Size? size;
   final Set<String> flavors;
@@ -134,7 +138,7 @@ class AssetGenImage {
     bool matchTextDirection = false,
     bool gaplessPlayback = true,
     bool isAntiAlias = false,
-    String? package,
+    @Deprecated('Do not specify package for a generated library asset') String? package = package,
     FilterQuality filterQuality = FilterQuality.medium,
     int? cacheWidth,
     int? cacheHeight,
@@ -167,13 +171,16 @@ class AssetGenImage {
     );
   }
 
-  ImageProvider provider({AssetBundle? bundle, String? package}) {
+  ImageProvider provider({
+    AssetBundle? bundle,
+    @Deprecated('Do not specify package for a generated library asset') String? package = package,
+  }) {
     return AssetImage(_assetName, bundle: bundle, package: package);
   }
 
   String get path => _assetName;
 
-  String get keyName => _assetName;
+  String get keyName => 'packages/saly_ui_kit/$_assetName';
 }
 
 class AssetGenImageAnimation {
@@ -194,11 +201,13 @@ class SvgGenImage {
   final Set<String> flavors;
   final bool _isVecFormat;
 
+  static const String package = 'saly_ui_kit';
+
   _svg.SvgPicture svg({
     Key? key,
     bool matchTextDirection = false,
     AssetBundle? bundle,
-    String? package,
+    @Deprecated('Do not specify package for a generated library asset') String? package = package,
     double? width,
     double? height,
     BoxFit fit = BoxFit.contain,
@@ -247,5 +256,5 @@ class SvgGenImage {
 
   String get path => _assetName;
 
-  String get keyName => _assetName;
+  String get keyName => 'packages/saly_ui_kit/$_assetName';
 }

@@ -29,6 +29,7 @@ flutter_gen:
   assets:
     outputs:
       class_name: SalyAssets
+      package_parameter_enabled: true
   colors:
     inputs:
       - assets/colors/light_colors.xml
