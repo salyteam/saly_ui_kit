@@ -95,7 +95,7 @@ class SalyButton extends StatelessWidget {
                     title,
                     style:
                         textStyle ??
-                        context.texts.subtitle.copyWith(
+                        context.fonts.subtitle.copyWith(
                           color: _textColor(context),
                           fontWeight: FontWeight.w700,
                           fontSize: 16,
