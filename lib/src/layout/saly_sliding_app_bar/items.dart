@@ -49,6 +49,7 @@ class AppBarItems extends StatelessWidget {
                 item.iconPath,
                 height: iconSize,
                 width: iconSize,
+                package: item.package,
                 colorFilter: ColorFilter.mode(selectedIconColor, BlendMode.srcIn),
               )
             : SvgPicture.asset(
@@ -56,6 +57,7 @@ class AppBarItems extends StatelessWidget {
                 item.iconPath,
                 height: iconSize,
                 width: iconSize,
+                package: item.package,
                 colorFilter: ColorFilter.mode(iconColor, BlendMode.srcIn),
               ),
       );

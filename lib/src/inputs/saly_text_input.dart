@@ -139,7 +139,7 @@ class _SalyTextInputState extends State<SalyTextInput> {
           formControl: widget.control ?? FormControl(),
           controller: widget.editingController,
           validationMessages: widget.validationMessages,
-          style: widget.style ?? context.texts.body.copyWith(color: _textColor),
+          style: widget.style ?? context.fonts.body.copyWith(color: _textColor),
           maxLines: widget.maxLines,
           minLines: widget.minLines,
           cursorColor: _cursorColor,
@@ -151,7 +151,7 @@ class _SalyTextInputState extends State<SalyTextInput> {
           decoration: InputDecoration(
             isDense: true,
             hintText: widget.hintText,
-            hintStyle: context.texts.body.copyWith(color: _hintTextColor),
+            hintStyle: context.fonts.body.copyWith(color: _hintTextColor),
             filled: true,
             fillColor: _backgroundColor,
             contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16)
