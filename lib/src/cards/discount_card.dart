@@ -82,7 +82,7 @@ class DiscountCard extends StatelessWidget {
                   description!,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: context.texts.body,
+                  style: context.fonts.body,
                 ),
               ),
             ],
@@ -128,10 +128,10 @@ class _LogoBanner extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   if (name.isNotEmpty)
-                    Text(name, style: context.texts.h6, maxLines: 2, overflow: TextOverflow.ellipsis),
+                    Text(name, style: context.fonts.h6, maxLines: 2, overflow: TextOverflow.ellipsis),
                   Text(
                     'Health & Wellness',
-                    style: context.texts.body.copyWith(color: context.colors.neutralSecondaryS5),
+                    style: context.fonts.body.copyWith(color: context.colors.neutralSecondaryS5),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -156,7 +156,7 @@ class _IndoChip extends StatelessWidget {
     decoration: BoxDecoration(color: context.colors.statusAccentS2, borderRadius: BorderRadius.circular(12)),
     child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      child: Text(title, style: context.texts.subtitle.copyWith(color: context.colors.neutralPrimaryS1)),
+      child: Text(title, style: context.fonts.subtitle.copyWith(color: context.colors.neutralPrimaryS1)),
     ),
   );
 }

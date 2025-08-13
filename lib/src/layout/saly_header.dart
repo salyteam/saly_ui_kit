@@ -65,7 +65,7 @@ abstract class SalyHeader extends StatelessWidget implements PreferredSizeWidget
                   onTap: onTapBack ?? () => Navigator.pop(context),
                 ),
           ),
-          if (titleWidget != null) titleWidget! else if (title != null) Text(title!, style: context.texts.h6),
+          if (titleWidget != null) titleWidget! else if (title != null) Text(title!, style: context.fonts.h6),
           trailing ?? const SizedBox.square(dimension: 52),
         ],
       ),

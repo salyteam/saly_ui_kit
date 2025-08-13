@@ -7,7 +7,7 @@ extension ThemeDataExt on BuildContext {
     return Theme.of(this).extension<ColorThemeExtension>() ?? ColorThemeExtension.light();
   }
 
-  FontsExtension get texts {
+  FontsExtension get fonts {
     return Theme.of(this).extension<FontsExtension>() ?? FontsExtension.base();
   }
 }

@@ -14,11 +14,10 @@ class OtpField extends StatelessWidget {
     length: length,
     onChanged: onChange,
     forceErrorState: hasError,
-
     errorPinTheme: PinTheme(
       height: MediaQuery.sizeOf(context).width * 0.13,
       width: MediaQuery.sizeOf(context).width * 0.1,
-      textStyle: context.texts.subtitle.copyWith(color: context.colors.statusErrorS1),
+      textStyle: context.fonts.subtitle.copyWith(color: context.colors.statusErrorS1),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: context.colors.statusErrorS1),
@@ -28,7 +27,7 @@ class OtpField extends StatelessWidget {
     defaultPinTheme: PinTheme(
       height: MediaQuery.sizeOf(context).width * 0.13,
       width: MediaQuery.sizeOf(context).width * 0.1,
-      textStyle: context.texts.subtitle,
+      textStyle: context.fonts.subtitle,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: context.colors.neutralSecondaryS3),
