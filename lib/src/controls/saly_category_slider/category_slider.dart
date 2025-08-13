@@ -40,16 +40,16 @@ class _SalyCategorySliderState extends State<SalyCategorySlider> {
       scrollDirection: Axis.horizontal,
       child: Row(
         spacing: 12,
-        children: [
-          ..._allItems.map(
-            (i) => SalyCategoryChip(
-              key: i.key,
-              value: i.value,
-              text: i.text,
-              onChange: (value) => _onChange(i, value),
-            ),
-          ),
-        ],
+        children: _allItems
+            .map(
+              (i) => SalyCategoryChip(
+                key: i.key,
+                value: i.value,
+                text: i.text,
+                onChange: (value) => _onChange(i, value),
+              ),
+            )
+            .toList(),
       ),
     );
   }
