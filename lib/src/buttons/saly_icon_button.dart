@@ -60,21 +60,24 @@ class SalyIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox.square(
       dimension: size,
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(size * 2),
-        splashColor: _splashColor(context),
-        highlightColor: _splashColor(context),
-        child: Ink(
-          decoration: BoxDecoration(
-            color: isDisabled ? _backgroundDisabledColor(context) : _backgroundColor(context),
-            borderRadius: BorderRadius.circular(size * 2),
-            border: _type == SalyButtonType.ghost
-                ? Border.all(color: context.colors.neutralSecondaryS3)
-                : null,
-            boxShadow: boxShadow,
+      child: Material(
+        type: MaterialType.transparency,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(size * 2),
+          splashColor: _splashColor(context),
+          highlightColor: _splashColor(context),
+          child: Ink(
+            decoration: BoxDecoration(
+              color: isDisabled ? _backgroundDisabledColor(context) : _backgroundColor(context),
+              borderRadius: BorderRadius.circular(size * 2),
+              border: _type == SalyButtonType.ghost
+                  ? Border.all(color: context.colors.neutralSecondaryS3)
+                  : null,
+              boxShadow: boxShadow,
+            ),
+            child: Center(child: icon),
           ),
-          child: Center(child: icon),
         ),
       ),
     );

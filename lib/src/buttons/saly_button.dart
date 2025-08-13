@@ -73,32 +73,35 @@ class SalyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(radius),
-      splashColor: _splashColor(context),
-      highlightColor: _splashColor(context),
-      child: Ink(
-        decoration: BoxDecoration(
-          color: isDisabled ? _backgroundDisabledColor(context) : _backgroundColor(context),
-          borderRadius: BorderRadius.circular(radius),
-          boxShadow: [BoxShadow(color: _backgroundColor(context).withValues(alpha: 0.1), blurRadius: 16)],
-        ),
-        child: Padding(
-          padding: padding,
-          child: Center(
-            child:
-                child ??
-                Text(
-                  title,
-                  style:
-                      textStyle ??
-                      context.texts.subtitle.copyWith(
-                        color: _textColor(context),
-                        fontWeight: FontWeight.w700,
-                        fontSize: 16,
-                      ),
-                ),
+    return Material(
+      type: MaterialType.transparency,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(radius),
+        splashColor: _splashColor(context),
+        highlightColor: _splashColor(context),
+        child: Ink(
+          decoration: BoxDecoration(
+            color: isDisabled ? _backgroundDisabledColor(context) : _backgroundColor(context),
+            borderRadius: BorderRadius.circular(radius),
+            boxShadow: [BoxShadow(color: _backgroundColor(context).withValues(alpha: 0.1), blurRadius: 16)],
+          ),
+          child: Padding(
+            padding: padding,
+            child: Center(
+              child:
+                  child ??
+                  Text(
+                    title,
+                    style:
+                        textStyle ??
+                        context.texts.subtitle.copyWith(
+                          color: _textColor(context),
+                          fontWeight: FontWeight.w700,
+                          fontSize: 16,
+                        ),
+                  ),
+            ),
           ),
         ),
       ),
