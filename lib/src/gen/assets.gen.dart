@@ -17,8 +17,8 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
-  /// File path: assets/icons/arrow_dowm.svg
-  SvgGenImage get arrowDowm => const SvgGenImage('assets/icons/arrow_dowm.svg');
+  /// File path: assets/icons/add.svg
+  SvgGenImage get add => const SvgGenImage('assets/icons/add.svg');
 
   /// File path: assets/icons/arrow_left.svg
   SvgGenImage get arrowLeft => const SvgGenImage('assets/icons/arrow_left.svg');
@@ -29,6 +29,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/cake.svg
   SvgGenImage get cake => const SvgGenImage('assets/icons/cake.svg');
 
+  /// File path: assets/icons/change.svg
+  SvgGenImage get change => const SvgGenImage('assets/icons/change.svg');
+
   /// File path: assets/icons/cross.svg
   SvgGenImage get cross => const SvgGenImage('assets/icons/cross.svg');
 
@@ -38,11 +41,20 @@ class $AssetsIconsGen {
   /// File path: assets/icons/email.svg
   SvgGenImage get email => const SvgGenImage('assets/icons/email.svg');
 
+  /// File path: assets/icons/error.svg
+  SvgGenImage get error => const SvgGenImage('assets/icons/error.svg');
+
+  /// File path: assets/icons/eye.svg
+  SvgGenImage get eye => const SvgGenImage('assets/icons/eye.svg');
+
   /// File path: assets/icons/heart.svg
   SvgGenImage get heart => const SvgGenImage('assets/icons/heart.svg');
 
   /// File path: assets/icons/home.svg
   SvgGenImage get home => const SvgGenImage('assets/icons/home.svg');
+
+  /// File path: assets/icons/location.svg
+  SvgGenImage get location => const SvgGenImage('assets/icons/location.svg');
 
   /// File path: assets/icons/moon.svg
   SvgGenImage get moon => const SvgGenImage('assets/icons/moon.svg');
@@ -50,34 +62,50 @@ class $AssetsIconsGen {
   /// File path: assets/icons/more.svg
   SvgGenImage get more => const SvgGenImage('assets/icons/more.svg');
 
+  /// File path: assets/icons/scan.svg
+  SvgGenImage get scan => const SvgGenImage('assets/icons/scan.svg');
+
   /// File path: assets/icons/search_light.svg
   SvgGenImage get searchLight => const SvgGenImage('assets/icons/search_light.svg');
 
   /// File path: assets/icons/sort.svg
   SvgGenImage get sort => const SvgGenImage('assets/icons/sort.svg');
 
+  /// File path: assets/icons/status_ok.svg
+  SvgGenImage get statusOk => const SvgGenImage('assets/icons/status_ok.svg');
+
   /// File path: assets/icons/sun.svg
   SvgGenImage get sun => const SvgGenImage('assets/icons/sun.svg');
+
+  /// File path: assets/icons/unfold.svg
+  SvgGenImage get unfold => const SvgGenImage('assets/icons/unfold.svg');
 
   /// File path: assets/icons/user.svg
   SvgGenImage get user => const SvgGenImage('assets/icons/user.svg');
 
   /// List of all assets
   List<SvgGenImage> get values => [
-    arrowDowm,
+    add,
     arrowLeft,
     arrowRight,
     cake,
+    change,
     cross,
     edit,
     email,
+    error,
+    eye,
     heart,
     home,
+    location,
     moon,
     more,
+    scan,
     searchLight,
     sort,
+    statusOk,
     sun,
+    unfold,
     user,
   ];
 }

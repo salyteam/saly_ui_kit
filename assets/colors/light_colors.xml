@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="neutral_secondary_s1">#0F1935</color>
-    <color name="neutral_secondary_s2">#7797B1</color>
-    <color name="neutral_secondary_s3">#EEF1F4</color>
+    <color name="neutral_secondary_s2">#A3B2C2</color>
+    <color name="neutral_secondary_s3">#EEEFF4</color>
     <color name="neutral_secondary_s4">#C7D4DE</color>
-    <color name="neutral_secondary_s5">#8FB1CB</color>
-    <color name="neutral_secondary_s6">#6E7A9C</color>
+    <color name="neutral_secondary_s5">#EEF1F4</color>
+    <color name="neutral_secondary_s6">#6E769C</color>
     <color name="neutral_primary_s1">#FFFFFF</color>
-    <color name="neutral_primary_s2">#FCFCFC</color>
-    <color name="status_info_s1">#7AA6D9</color>
-    <color name="status_info_s2">#F7FAFD</color>
-    <color name="status_ok_s1">#37D158</color>
+    <color name="neutral_primary_s2">#FAFAFA</color>
+    <color name="status_info_s1">#F59E2E</color>
+    <color name="status_info_s2">#FFFDFA</color>
+    <color name="status_ok_s1">#3BCE60</color>
     <color name="status_ok_s2">#F7FDF8</color>
-    <color name="status_error_s1">#F63361</color>
+    <color name="status_error_s1">#F03964</color>
     <color name="status_error_s2">#FEEBF0</color>
     <color name="status_error_s3">#FFF5F7</color>
-    <color name="status_accent_s1">#FF8341</color>
-    <color name="status_accent_s2">#F67733</color>
+    <color name="status_accent_s1">#4BA762</color>
+    <color name="status_accent_s2">#45C465</color>
     <color name="shadow_color">#CCCACA</color>
 </resources>
