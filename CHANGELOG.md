@@ -1,4 +1,4 @@
-## 0.0.1
+## 0.0.2
 
 ### Features
 - Added asset files.
@@ -8,6 +8,7 @@
 - Added control components: `SalySwitcher`.
 - Added layout components: `SalyStepper`, `SalySlidingAppBar`, `BottomScrollSpacing`, `SalyHeader`, `Shimmer`.
 - Added card components: `DiscountCard`.
+- Added new icon and new colors.
 
 ### Documentation
 - Updated `README.md` with component structure.
