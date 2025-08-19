@@ -12,6 +12,7 @@ class DiscountCard extends StatelessWidget {
     required this.description,
     required this.sale,
     required this.name,
+    this.onTap,
     this.onFavoriteTap,
     this.category,
     this.imgBackground,
@@ -25,68 +26,68 @@ class DiscountCard extends StatelessWidget {
   final int sale;
   final bool isLiked;
   final void Function(bool value)? onFavoriteTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(24),
-        color: context.colors.neutralPrimaryS1,
-        boxShadow: [BoxShadow(blurRadius: 16, color: context.colors.shadowColor.withValues(alpha: 0.1))],
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(8),
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: CachedNetworkImage(
-                    imageUrl: imgBackground ?? '',
-                    height: 470,
-                    fit: BoxFit.cover,
-                    errorWidget: (context, _, __) => SalyAssets.images.restourant.image(fit: BoxFit.cover),
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(24),
+      child: Ink(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(24),
+          color: context.colors.neutralPrimaryS1,
+          boxShadow: [BoxShadow(blurRadius: 16, color: context.colors.shadowColor.withValues(alpha: 0.1))],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: Column(
+            children: [
+              Stack(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: CachedNetworkImage(
+                      imageUrl: imgBackground ?? '',
+                      height: 470,
+                      fit: BoxFit.cover,
+                      errorWidget: (context, _, __) => SalyAssets.images.restourant.image(fit: BoxFit.cover),
+                    ),
                   ),
-                ),
-                Positioned(
-                  bottom: 16,
-                  right: 16,
-                  left: 16,
-                  child: _LogoBanner(
-                    name: name,
-                    imagePath: companyImg,
-                    isLiked: isLiked,
-                    onFavoriteTap: onFavoriteTap,
+                  Positioned(
+                    bottom: 16,
+                    right: 16,
+                    left: 16,
+                    child: _LogoBanner(
+                      name: name,
+                      imagePath: companyImg,
+                      isLiked: isLiked,
+                      onFavoriteTap: onFavoriteTap,
+                    ),
                   ),
-                ),
-                Positioned(top: 16, right: 16, child: _ShareButton(() {})),
-                Positioned(
-                  top: 16,
-                  left: 16,
-                  child: Row(
-                    spacing: 8,
-                    children: [
-                      if (category != null) _IndoChip(title: category!),
-                      _IndoChip(title: '-$sale%'),
-                    ],
+                  Positioned(top: 16, right: 16, child: _ShareButton(() {})),
+                  Positioned(
+                    top: 16,
+                    left: 16,
+                    child: Row(
+                      spacing: 8,
+                      children: [
+                        if (category != null) _IndoChip(title: category!),
+                        _IndoChip(title: '-$sale%'),
+                      ],
+                    ),
                   ),
+                ],
+              ),
+              if (description != null) ...[
+                const SizedBox(height: 8),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+                  child: Text(description!, maxLines: 2, overflow: TextOverflow.ellipsis, style: context.fonts.body),
                 ),
               ],
-            ),
-            if (description != null) ...[
-              const SizedBox(height: 8),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
-                child: Text(
-                  description!,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: context.fonts.body,
-                ),
-              ),
             ],
-          ],
+          ),
         ),
       ),
     );
@@ -104,10 +105,7 @@ class _LogoBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        color: context.colors.neutralPrimaryS1,
-      ),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: context.colors.neutralPrimaryS1),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         child: Row(
