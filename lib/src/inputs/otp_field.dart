@@ -3,16 +3,18 @@ import 'package:pinput/pinput.dart';
 import 'package:saly_ui_kit/src/utils/extenstion.dart';
 
 class OtpField extends StatelessWidget {
-  const OtpField({this.onChange, this.length = 4, this.hasError = false, super.key});
+  const OtpField({this.onCompleted, this.onChange, this.length = 4, this.hasError = false, super.key});
 
   final int length;
   final bool hasError;
   final void Function(String value)? onChange;
+  final void Function(String value)? onCompleted;
 
   @override
   Widget build(BuildContext context) => Pinput(
     length: length,
     onChanged: onChange,
+    onCompleted: onCompleted,
     forceErrorState: hasError,
     errorPinTheme: PinTheme(
       height: MediaQuery.sizeOf(context).width * 0.13,
