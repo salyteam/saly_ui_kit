@@ -60,9 +60,11 @@ abstract class SalyHeader extends StatelessWidget implements PreferredSizeWidget
             color: Colors.transparent,
             child:
                 leading ??
-                SalyIconButton.ghost(
-                  icon: SalyAssets.icons.arrowLeft.svg(),
+                SalyButton.ghost(
+                  radius: 52,
+                  size: Size.square(52),
                   onTap: onTapBack ?? () => Navigator.pop(context),
+                  child: SalyAssets.icons.arrowLeft.svg(),
                 ),
           ),
           if (titleWidget != null) titleWidget! else if (title != null) Text(title!, style: context.fonts.h6),

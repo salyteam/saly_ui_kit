@@ -4,42 +4,53 @@ import 'package:saly_ui_kit/src/utils/extenstion.dart';
 
 class SalyButton extends StatelessWidget {
   const SalyButton.primary({
-    required this.title,
+    this.title,
     this.onTap,
     this.child,
     this.textStyle,
     this.radius = 50,
+    this.size,
+    this.shadow,
     this.padding = const EdgeInsets.symmetric(vertical: 14, horizontal: 65),
     super.key,
-  }) : _type = SalyButtonType.primary;
+  }) : _type = SalyButtonType.primary,
+       assert(child != null || title != null);
 
   const SalyButton.secondary({
-    required this.title,
+    this.title,
     this.onTap,
     this.child,
     this.textStyle,
     this.radius = 50,
+    this.size,
+    this.shadow,
     this.padding = const EdgeInsets.symmetric(vertical: 14, horizontal: 65),
     super.key,
-  }) : _type = SalyButtonType.secondary;
+  }) : _type = SalyButtonType.secondary,
+       assert(child != null || title != null);
 
   const SalyButton.ghost({
-    required this.title,
+    this.title,
     this.onTap,
     this.child,
     this.textStyle,
     this.radius = 50,
+    this.size,
+    this.shadow,
     this.padding = const EdgeInsets.symmetric(vertical: 14, horizontal: 65),
     super.key,
-  }) : _type = SalyButtonType.ghost;
+  }) : _type = SalyButtonType.ghost,
+       assert(child != null || title != null);
 
   final VoidCallback? onTap;
   final double radius;
   final Widget? child;
-  final String title;
+  final String? title;
   final TextStyle? textStyle;
   final EdgeInsets padding;
   final SalyButtonType _type;
+  final List<BoxShadow>? shadow;
+  final Size? size;
 
   bool get isDisabled => onTap == null;
 
@@ -73,34 +84,40 @@ class SalyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      type: MaterialType.transparency,
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(radius),
-        splashColor: _splashColor(context),
-        highlightColor: _splashColor(context),
-        child: Ink(
-          decoration: BoxDecoration(
-            color: isDisabled ? _backgroundDisabledColor(context) : _backgroundColor(context),
-            borderRadius: BorderRadius.circular(radius),
-            boxShadow: [BoxShadow(color: _backgroundColor(context).withValues(alpha: 0.1), blurRadius: 16)],
-          ),
-          child: Padding(
-            padding: padding,
-            child: Center(
-              child:
-                  child ??
-                  Text(
-                    title,
-                    style:
-                        textStyle ??
-                        context.fonts.subtitle.copyWith(
-                          color: _textColor(context),
-                          fontWeight: FontWeight.w700,
-                          fontSize: 16,
-                        ),
-                  ),
+    return SizedBox.fromSize(
+      size: size,
+      child: Material(
+        color: Colors.transparent,
+        type: MaterialType.transparency,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(radius),
+          splashColor: _splashColor(context),
+          highlightColor: _splashColor(context),
+          child: Ink(
+            decoration: BoxDecoration(
+              color: isDisabled ? _backgroundDisabledColor(context) : _backgroundColor(context),
+              borderRadius: BorderRadius.circular(radius),
+              boxShadow: shadow ?? [BoxShadow(color: _backgroundColor(context).withValues(alpha: 0.1), blurRadius: 16)],
+            ),
+            child: Padding(
+              padding: size != null ? const EdgeInsets.all(0) : padding,
+              child: Center(
+                child:
+                    child ??
+                    (title != null
+                        ? Text(
+                            title!,
+                            style:
+                                textStyle ??
+                                context.fonts.subtitle.copyWith(
+                                  color: _textColor(context),
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 16,
+                                ),
+                          )
+                        : null),
+              ),
             ),
           ),
         ),
