@@ -29,6 +29,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/cake.svg
   SvgGenImage get cake => const SvgGenImage('assets/icons/cake.svg');
 
+  /// File path: assets/icons/category.svg
+  SvgGenImage get category => const SvgGenImage('assets/icons/category.svg');
+
   /// File path: assets/icons/change.svg
   SvgGenImage get change => const SvgGenImage('assets/icons/change.svg');
 
@@ -89,6 +92,7 @@ class $AssetsIconsGen {
     arrowLeft,
     arrowRight,
     cake,
+    category,
     change,
     cross,
     edit,
