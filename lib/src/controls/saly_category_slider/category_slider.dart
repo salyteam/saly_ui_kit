@@ -41,14 +41,7 @@ class _SalyCategorySliderState extends State<SalyCategorySlider> {
       child: Row(
         spacing: 12,
         children: _allItems
-            .map(
-              (i) => SalyCategoryChip(
-                key: i.key,
-                value: i.value,
-                text: i.text,
-                onChange: (value) => _onChange(i, value),
-              ),
-            )
+            .map((i) => SalyCategoryChip(key: i.key, title: i.value.toString(), onTap: () => _onChange(i, i.value)))
             .toList(),
       ),
     );

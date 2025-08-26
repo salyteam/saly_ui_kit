@@ -1,73 +1,58 @@
 import 'package:flutter/material.dart';
 import 'package:saly_ui_kit/src/utils/extenstion.dart';
 
-class SalyCategoryChip extends StatefulWidget {
+class SalyCategoryChip extends StatelessWidget {
   const SalyCategoryChip({
-    required this.value,
-    required this.text,
-    required this.onChange,
-    this.icon,
+    required this.title,
+    this.opacity = 1,
+    this.isActive = false,
+    this.mainAxisAlignment = MainAxisAlignment.start,
+    this.onTap,
+    this.leading,
+    this.padding,
     super.key,
   });
 
-  final bool value;
-  final String text;
-  final Widget? icon;
-  final ValueChanged<bool> onChange;
-
-  @override
-  State<SalyCategoryChip> createState() => _SalyCategoryChipState();
-}
-
-class _SalyCategoryChipState extends State<SalyCategoryChip> {
-  late bool _value;
-
-  @override
-  void initState() {
-    super.initState();
-    _value = widget.value;
-  }
-
-  Color get _backgroundColor => context.colors.neutralPrimaryS1;
-  Color get _borderColor => _value ? context.colors.statusAccentS1 : _backgroundColor;
-  Color get _shadowColor => _value
-      ? context.colors.statusAccentS1.withValues(alpha: 0.1)
-      : context.colors.shadowColor.withValues(alpha: 0.1);
+  final double opacity;
+  final String title;
+  final Widget? leading;
+  final EdgeInsets? padding;
+  final bool isActive;
+  final VoidCallback? onTap;
+  final MainAxisAlignment mainAxisAlignment;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        setState(() => _value = !_value);
-        widget.onChange.call(_value);
-      },
-      child: Material(
-        type: MaterialType.transparency,
-        child: AnimatedContainer(
-          duration: Durations.medium2,
-          curve: Curves.easeInOut,
-          height: 52,
-          padding: EdgeInsets.symmetric(horizontal: 12),
+    final isDisable = onTap == null;
+
+    return InkWell(
+      onTap: isDisable ? null : onTap,
+      borderRadius: BorderRadius.circular(12),
+      child: IntrinsicWidth(
+        child: Ink(
           decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(12)),
-            border: Border.all(color: _borderColor, strokeAlign: BorderSide.strokeAlignInside),
-            color: _backgroundColor,
-            boxShadow: [BoxShadow(blurRadius: 16, offset: Offset(0, 4), color: _shadowColor)],
+            color: isDisable ? Colors.transparent : context.colors.neutralPrimaryS1,
+            borderRadius: BorderRadius.circular(12),
+            border: isActive
+                ? Border.all(color: context.colors.statusInfoS1, strokeAlign: BorderSide.strokeAlignOutside)
+                : null,
+            boxShadow: [BoxShadow(color: context.colors.shadowColor.withValues(alpha: 0.1), blurRadius: 16)],
           ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            spacing: 8,
-            children: [
-              if (widget.icon != null) widget.icon!,
-              Flexible(
-                child: Text(
-                  widget.text,
-                  style: context.fonts.body,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 12,
+            ).copyWith(left: padding?.left, right: padding?.right, top: padding?.top, bottom: padding?.bottom),
+            child: Opacity(
+              opacity: isDisable ? 0.4 : opacity,
+              child: Row(
+                mainAxisAlignment: mainAxisAlignment,
+                children: [
+                  if (leading != null) FittedBox(child: leading),
+                  const SizedBox(width: 8),
+                  FittedBox(child: Text(title, style: context.fonts.body)),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),
