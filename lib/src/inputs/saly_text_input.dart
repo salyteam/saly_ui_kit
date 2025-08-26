@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import 'package:saly_ui_kit/saly_ui_kit.dart' show SvgGenImage;
 import 'package:saly_ui_kit/src/utils/extenstion.dart';
 
 class SalyTextInput<T> extends StatefulWidget {
   const SalyTextInput({
-    this.suffixIconPath,
+    this.suffixIconAsset,
     this.minLines,
     this.maxLines,
     this.hintText,
@@ -32,7 +31,8 @@ class SalyTextInput<T> extends StatefulWidget {
   });
 
   final int? maxLines, minLines;
-  final String? hintText, suffixIconPath;
+  final String? hintText;
+  final SvgGenImage? suffixIconAsset;
   final Widget? suffixIcon;
   final EdgeInsets? contentPadding;
   final FormControl<dynamic>? control;
@@ -104,6 +104,21 @@ class _SalyTextInputState extends State<SalyTextInput> {
     return context.colors.neutralPrimaryS1;
   }
 
+  Widget? get _suffixIcon {
+    if (widget.suffixIcon != null) {
+      return widget.suffixIcon;
+    }
+
+    if (widget.suffixIconAsset != null) {
+      return Padding(
+        padding: const EdgeInsets.only(right: 16),
+        child: widget.suffixIconAsset!.svg(colorFilter: ColorFilter.mode(_suffixIconColor, BlendMode.srcIn)),
+      );
+    }
+
+    return null;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -146,9 +161,7 @@ class _SalyTextInputState extends State<SalyTextInput> {
           cursorColor: _cursorColor,
           cursorErrorColor: context.colors.statusErrorS1,
           cursorHeight: 16,
-          onChanged: (value) {
-            setState(() {});
-          },
+          onChanged: (_) => setState(() {}),
           decoration: InputDecoration(
             isDense: true,
             hintText: widget.hintText,
@@ -162,18 +175,7 @@ class _SalyTextInputState extends State<SalyTextInput> {
                 left: widget.contentPadding?.left,
                 right: widget.contentPadding?.right,
               ),
-            suffixIcon:
-                widget.suffixIcon ??
-                (widget.suffixIconPath != null
-                    ? Padding(
-                        padding: const EdgeInsets.only(right: 16),
-                        child: SvgPicture.asset(
-                          widget.suffixIconPath!,
-                          colorFilter: ColorFilter.mode(_suffixIconColor, BlendMode.srcIn),
-                          package: SvgGenImage.package,
-                        ),
-                      )
-                    : null),
+            suffixIcon: _suffixIcon,
             suffixIconColor: _suffixIconColor,
             suffixIconConstraints: const BoxConstraints(maxHeight: 24, maxWidth: 40),
             border: OutlineInputBorder(
