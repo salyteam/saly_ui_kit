@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:reactive_forms/reactive_forms.dart';
+import 'package:saly_ui_kit/saly_ui_kit.dart' show SvgGenImage;
 import 'package:saly_ui_kit/src/utils/extenstion.dart';
 
 class SalyTextInput<T> extends StatefulWidget {
@@ -169,6 +170,7 @@ class _SalyTextInputState extends State<SalyTextInput> {
                         child: SvgPicture.asset(
                           widget.suffixIconPath!,
                           colorFilter: ColorFilter.mode(_suffixIconColor, BlendMode.srcIn),
+                          package: SvgGenImage.package,
                         ),
                       )
                     : null),
