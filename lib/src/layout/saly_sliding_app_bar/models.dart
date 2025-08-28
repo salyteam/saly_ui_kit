@@ -1,6 +1,8 @@
-class AppBarItem {
-  const AppBarItem({required this.iconPath, this.package});
+import 'package:saly_ui_kit/saly_ui_kit.dart';
 
-  final String iconPath;
+class AppBarItem {
+  const AppBarItem({required this.icon, this.package});
+
+  final SvgGenImage icon;
   final String? package;
 }
