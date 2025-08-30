@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:saly_ui_kit/src/layout/saly_sliding_app_bar/models.dart';
 
 class AppBarItems extends StatelessWidget {
@@ -44,20 +43,16 @@ class AppBarItems extends StatelessWidget {
         switchInCurve: Curves.easeInToLinear,
         switchOutCurve: Curves.easeInToLinear,
         child: i == selectedIndex
-            ? SvgPicture.asset(
+            ? item.icon.svg(
                 key: const ValueKey(1),
-                item.iconPath,
                 height: iconSize,
                 width: iconSize,
-                package: item.package,
                 colorFilter: ColorFilter.mode(selectedIconColor, BlendMode.srcIn),
               )
-            : SvgPicture.asset(
+            : item.icon.svg(
                 key: const ValueKey(2),
-                item.iconPath,
                 height: iconSize,
                 width: iconSize,
-                package: item.package,
                 colorFilter: ColorFilter.mode(iconColor, BlendMode.srcIn),
               ),
       );
