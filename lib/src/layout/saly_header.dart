@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:saly_ui_kit/saly_ui_kit.dart';
-import 'package:saly_ui_kit/src/utils/extenstion.dart';
 
 const double _kToolBarHeight = 60;
 

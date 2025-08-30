@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:saly_ui_kit/src/utils/extenstion.dart';
+import 'package:saly_ui_kit/saly_ui_kit.dart';
 
 class SalyCategoryChip extends StatelessWidget {
   const SalyCategoryChip({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:saly_ui_kit/src/gen/assets.gen.dart';
-import 'package:saly_ui_kit/src/utils/extenstion.dart';
+import 'package:saly_ui_kit/src/utils/extension.dart';
 
 class SalyLikeButton extends StatefulWidget {
   const SalyLikeButton({required this.onTap, this.initValue = false, this.size = 52, super.key});

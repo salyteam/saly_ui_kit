@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
-import 'package:saly_ui_kit/src/utils/extenstion.dart';
+import 'package:saly_ui_kit/saly_ui_kit.dart';
 
 class OtpField extends StatelessWidget {
   const OtpField({this.onCompleted, this.onChange, this.length = 4, this.hasError = false, super.key});

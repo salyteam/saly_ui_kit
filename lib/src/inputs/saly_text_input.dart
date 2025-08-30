@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:reactive_forms/reactive_forms.dart';
-import 'package:saly_ui_kit/src/utils/extenstion.dart';
+import 'package:saly_ui_kit/saly_ui_kit.dart';
 
 class SalyTextInput<T> extends StatefulWidget {
   const SalyTextInput({
@@ -121,8 +121,7 @@ class _SalyTextInputState extends State<SalyTextInput> {
       child: DecoratedBox(
         decoration: BoxDecoration(
           boxShadow: [
-            if (!widget.readOnly)
-              BoxShadow(blurRadius: 16, color: _getPrimaryShadowColor.withValues(alpha: 0.1)),
+            if (!widget.readOnly) BoxShadow(blurRadius: 16, color: _getPrimaryShadowColor.withValues(alpha: 0.1)),
           ],
         ),
         child: ReactiveTextField(
