@@ -63,7 +63,11 @@ abstract class SalyHeader extends StatelessWidget implements PreferredSizeWidget
                   radius: 52,
                   size: Size.square(52),
                   onTap: onTapBack ?? () => Navigator.pop(context),
-                  child: SalyAssets.icons.arrowLeft.svg(),
+                  child: SalyAssets.icons.arrowLeft.svg(
+                    colorFilter: SalyTheme.of(context).isDartTheme
+                        ? ColorFilter.mode(context.colors.neutralSecondaryS4, BlendMode.srcIn)
+                        : null,
+                  ),
                 ),
           ),
           if (titleWidget != null) titleWidget! else if (title != null) Text(title!, style: context.fonts.h6),

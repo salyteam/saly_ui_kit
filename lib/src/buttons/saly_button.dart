@@ -87,6 +87,7 @@ class SalyButton extends StatelessWidget {
     return SizedBox.fromSize(
       size: size,
       child: Material(
+        clipBehavior: Clip.none,
         color: Colors.transparent,
         type: MaterialType.transparency,
         child: InkWell(
