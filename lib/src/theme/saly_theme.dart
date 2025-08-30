@@ -9,10 +9,9 @@ class SalyTheme extends StatefulWidget {
     return result!;
   }
 
-  const SalyTheme({required this.child, this.initBrightness = Brightness.light, this.onChangeTheme, super.key});
+  const SalyTheme({required this.child, this.onChangeTheme, super.key});
 
   final Widget child;
-  final Brightness initBrightness;
   final void Function(Brightness currentValue)? onChangeTheme;
 
   @override
@@ -28,14 +27,9 @@ class SalyThemeState extends State<SalyTheme> {
   bool get isDartTheme => _brightness == Brightness.dark;
 
   @override
-  void initState() {
-    super.initState();
-    _brightness = widget.initBrightness;
-  }
-
-  @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    _brightness = MediaQuery.of(context).platformBrightness;
     _setDefaultTheme();
     _fonts = FontsExtension.base(color: _colors.neutralSecondaryS1);
   }

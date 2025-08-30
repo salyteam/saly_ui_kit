@@ -5,7 +5,7 @@ void main() {
   runApp(
     MaterialApp(
       builder: (context, child) {
-        return SalyTheme(child: child!);
+        return SalyTheme(onChangeTheme: (brightness) {}, child: child!);
       },
       home: const MyApp(),
     ),
