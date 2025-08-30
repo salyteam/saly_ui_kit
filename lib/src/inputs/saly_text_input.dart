@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:reactive_forms/reactive_forms.dart';
-import 'package:saly_ui_kit/saly_ui_kit.dart' show SvgGenImage;
-import 'package:saly_ui_kit/src/utils/extenstion.dart';
+import 'package:saly_ui_kit/saly_ui_kit.dart' show SvgGenImage, ThemeDataExt;
 
 class SalyTextInput<T> extends StatefulWidget {
   const SalyTextInput({
