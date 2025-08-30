@@ -32,6 +32,8 @@ class DiscountCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
+      clipBehavior: Clip.none,
+
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(24),
