@@ -137,8 +137,7 @@ class _SalyTextInputState extends State<SalyTextInput> {
       child: DecoratedBox(
         decoration: BoxDecoration(
           boxShadow: [
-            if (!widget.readOnly)
-              BoxShadow(blurRadius: 16, color: _getPrimaryShadowColor.withValues(alpha: 0.1)),
+            if (!widget.readOnly) BoxShadow(blurRadius: 16, color: _getPrimaryShadowColor.withValues(alpha: 0.1)),
           ],
         ),
         child: ReactiveTextField(

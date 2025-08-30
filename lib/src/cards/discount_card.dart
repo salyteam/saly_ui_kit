@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:saly_ui_kit/src/buttons/buttons.dart';
 import 'package:saly_ui_kit/src/gen/assets.gen.dart';
 import 'package:saly_ui_kit/src/layout/layout.dart';
-import 'package:saly_ui_kit/src/utils/extenstion.dart';
+import 'package:saly_ui_kit/src/utils/extension.dart';
 
 class DiscountCard extends StatelessWidget {
   static const Widget shimmer = Shimmer(height: 430);
@@ -32,6 +32,8 @@ class DiscountCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
+      clipBehavior: Clip.none,
+
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(24),

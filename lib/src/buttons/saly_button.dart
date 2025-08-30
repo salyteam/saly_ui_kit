@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:saly_ui_kit/src/buttons/button_type.dart';
-import 'package:saly_ui_kit/src/utils/extenstion.dart';
+import 'package:saly_ui_kit/src/utils/extension.dart';
 
 class SalyButton extends StatelessWidget {
   const SalyButton.primary({

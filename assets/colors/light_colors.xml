@@ -18,4 +18,24 @@
     <color name="status_accent_s1">#4BA762</color>
     <color name="status_accent_s2">#45C465</color>
     <color name="shadow_color">#CCCACA</color>
+
+    <!-- Dark theme -->
+    <color name="neutral_secondary_s1_dark">#E3E8F7</color>
+    <color name="neutral_secondary_s2_dark">#A3B2C2</color>
+    <color name="neutral_secondary_s3_dark">#32404D</color>
+    <color name="neutral_secondary_s4_dark">#C7D4DE</color>
+    <color name="neutral_secondary_s5_dark">#8FB1CB</color>
+    <color name="neutral_secondary_s6_dark">#6E769C</color>
+    <color name="neutral_primary_s1_dark">#1A1A1A</color>
+    <color name="neutral_primary_s2_dark">#202320</color>
+    <color name="status_info_s1_dark">#D67D0A</color>
+    <color name="status_info_s2_dark">#2C1A02</color>
+    <color name="status_ok_s1_dark">#218339</color>
+    <color name="status_ok_s2_dark">#0F421A</color>
+    <color name="status_error_s1_dark">#B40E35</color>
+    <color name="status_error_s2_dark">#FA8AA4</color>
+    <color name="status_error_s3_dark">#FCC4D2</color>
+    <color name="status_accent_s1_dark">#3A834C</color>
+    <color name="status_accent_s2_dark">#34A34F</color>
+    <color name="shadow_color_dark">#CCCACA</color>
 </resources>

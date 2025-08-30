@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:saly_ui_kit/src/utils/extenstion.dart';
+import 'package:saly_ui_kit/saly_ui_kit.dart';
 
 class SalySwitcher extends StatefulWidget {
-  const SalySwitcher({
-    required this.value,
-    required this.onChange,
-    this.size = 54,
-    this.thumbPadding = 4,
-    super.key,
-  });
+  const SalySwitcher({required this.value, required this.onChange, this.size = 54, this.thumbPadding = 4, super.key});
 
   final double size, thumbPadding;
   final bool value;
@@ -56,10 +50,7 @@ class _SalySwitcherState extends State<SalySwitcher> {
                   child: SizedBox.square(
                     dimension: widget.size / 2.51,
                     child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: context.colors.neutralPrimaryS1,
-                      ),
+                      decoration: BoxDecoration(shape: BoxShape.circle, color: context.colors.neutralPrimaryS1),
                     ),
                   ),
                 ),
