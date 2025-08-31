@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:saly_ui_kit/saly_ui_kit.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final sharedPref = await SharedPreferences.getInstance();
+
   runApp(
     MaterialApp(
       builder: (context, child) {
-        return SalyTheme(onChangeTheme: (brightness) {}, child: child!);
+        return SalyTheme(storage: sharedPref, child: child!);
       },
       home: const MyApp(),
     ),
   );
+}
+
+Brightness? getInitBrightness(SharedPreferences sharedPref) {
+  final value = sharedPref.getInt("color_theme");
+  if (value == null) return null;
+  return Brightness.values[value];
 }
 
 class MyApp extends StatelessWidget {
@@ -20,15 +30,15 @@ class MyApp extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Column(
+          spacing: 20,
           children: [
-            const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: [
-                  Expanded(child: Text("Swithc theme", style: context.fonts.h5)),
+                  Expanded(child: Text("Color theme", style: context.fonts.h5)),
                   SalySwitcher(
-                    value: SalyTheme.of(context).isDartTheme,
+                    value: false,
                     onChange: (valur) {
                       SalyTheme.of(context).changeTheme();
                     },
@@ -36,7 +46,7 @@ class MyApp extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 20),
+
             Expanded(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
