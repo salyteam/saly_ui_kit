@@ -79,7 +79,8 @@ class _SalyDropDownMenuState<T> extends State<SalyDropDownMenu<T>> {
       child: Opacity(
         opacity: widget.isDisable ? 0.4 : 1,
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
+          duration: const Duration(milliseconds: 170),
+          curve: Curves.easeInOut,
           decoration: BoxDecoration(
             border: Border.all(color: _isActive ? context.colors.statusInfoS1 : context.colors.neutralSecondaryS3),
             borderRadius: BorderRadius.circular(16),
@@ -116,7 +117,7 @@ class _DropDownMenuContent<T> extends StatefulWidget {
 }
 
 class _DropDownMenuContentState<T> extends State<_DropDownMenuContent<T>> {
-  final _animationDuration = const Duration(milliseconds: 200);
+  final _animationDuration = const Duration(milliseconds: 170);
   CrossFadeState _state = CrossFadeState.showSecond;
 
   late T _currentValue = widget.initValue;
@@ -139,7 +140,7 @@ class _DropDownMenuContentState<T> extends State<_DropDownMenuContent<T>> {
   @override
   Widget build(BuildContext context) {
     return AnimatedCrossFade(
-      sizeCurve: Curves.easeIn,
+      sizeCurve: Curves.easeInOut,
       duration: _animationDuration,
       crossFadeState: _state,
       secondChild: const SizedBox.shrink(),
@@ -207,7 +208,7 @@ class _DropDownMenuItemWidget extends StatelessWidget {
                 child: Text(title, style: context.fonts.body, maxLines: 1, overflow: TextOverflow.ellipsis),
               ),
               AnimatedSwitcher(
-                duration: const Duration(milliseconds: 300),
+                duration: const Duration(milliseconds: 170),
                 transitionBuilder: (child, animation) => ScaleTransition(scale: animation, child: child),
                 child: value
                     ? SalyAssets.icons.statusOk.svg(
