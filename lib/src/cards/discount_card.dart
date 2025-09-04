@@ -51,7 +51,16 @@ class DiscountCard extends StatelessWidget {
                       imageUrl: imgBackground ?? '',
                       height: 470,
                       fit: BoxFit.cover,
-                      errorWidget: (context, _, __) => SalyAssets.images.restourant.image(fit: BoxFit.cover),
+                      placeholder: (_, __) => SizedBox(
+                        height: double.infinity,
+                        width: double.infinity,
+                        child: DecoratedBox(decoration: BoxDecoration(color: context.colors.neutralSecondaryS3)),
+                      ),
+                      errorWidget: (context, _, __) => SizedBox(
+                        height: double.infinity,
+                        width: double.infinity,
+                        child: DecoratedBox(decoration: BoxDecoration(color: context.colors.neutralSecondaryS3)),
+                      ),
                     ),
                   ),
                   Positioned(
