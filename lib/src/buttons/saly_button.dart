@@ -86,39 +86,32 @@ class SalyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox.fromSize(
       size: size,
-      child: Material(
-        clipBehavior: Clip.none,
-        color: Colors.transparent,
-        type: MaterialType.transparency,
-        child: InkWell(
-          onTap: onTap,
-          borderRadius: BorderRadius.circular(radius),
-          splashColor: _splashColor(context),
-          highlightColor: _splashColor(context),
-          child: Ink(
-            decoration: BoxDecoration(
-              color: isDisabled ? _backgroundDisabledColor(context) : _backgroundColor(context),
-              borderRadius: BorderRadius.circular(radius),
-              boxShadow: shadow ?? [BoxShadow(color: _backgroundColor(context).withValues(alpha: 0.1), blurRadius: 16)],
-            ),
-            child: Padding(
-              padding: size != null ? const EdgeInsets.all(0) : padding,
-              child: Center(
-                child:
-                    child ??
-                    (title != null
-                        ? Text(
-                            title!,
-                            style:
-                                textStyle ??
-                                context.fonts.subtitle.copyWith(
-                                  color: _textColor(context),
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 16,
-                                ),
-                          )
-                        : null),
-              ),
+      child: GestureDetector(
+        onTap: onTap,
+        behavior: HitTestBehavior.opaque,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: isDisabled ? _backgroundDisabledColor(context) : _backgroundColor(context),
+            borderRadius: BorderRadius.circular(radius),
+            boxShadow: shadow ?? [BoxShadow(color: _backgroundColor(context).withValues(alpha: 0.1), blurRadius: 16)],
+          ),
+          child: Padding(
+            padding: size != null ? const EdgeInsets.all(0) : padding,
+            child: Center(
+              child:
+                  child ??
+                  (title != null
+                      ? Text(
+                          title!,
+                          style:
+                              textStyle ??
+                              context.fonts.subtitle.copyWith(
+                                color: _textColor(context),
+                                fontWeight: FontWeight.w700,
+                                fontSize: 16,
+                              ),
+                        )
+                      : null),
             ),
           ),
         ),

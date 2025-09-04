@@ -25,11 +25,11 @@ class SalyCategoryChip extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDisable = onTap == null;
 
-    return InkWell(
+    return GestureDetector(
       onTap: isDisable ? null : onTap,
-      borderRadius: BorderRadius.circular(12),
+      behavior: HitTestBehavior.opaque,
       child: IntrinsicWidth(
-        child: Ink(
+        child: DecoratedBox(
           decoration: BoxDecoration(
             color: isDisable ? Colors.transparent : context.colors.neutralPrimaryS1,
             borderRadius: BorderRadius.circular(12),

@@ -55,7 +55,9 @@ class MyApp extends StatelessWidget {
                   children: [
                     for (int i = 0; i < 5; i++)
                       DiscountCard(
-                        onTap: () {},
+                        onTap: () {
+                          print('asdfas');
+                        },
                         description:
                             "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore ma",
                         sale: 50,
