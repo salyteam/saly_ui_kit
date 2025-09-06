@@ -75,7 +75,11 @@ class SalyThemeState extends State<SalyTheme> {
     child: Theme(
       data: ThemeData(
         scaffoldBackgroundColor: _colors.neutralPrimaryS2,
-        appBarTheme: AppBarTheme(color: _colors.neutralPrimaryS2, surfaceTintColor: _colors.neutralPrimaryS2),
+        appBarTheme: AppBarTheme(
+          color: _colors.neutralPrimaryS2,
+          surfaceTintColor: _colors.neutralPrimaryS2,
+          systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.green),
+        ),
         extensions: [_colors, _fonts],
       ),
       child: widget.child,

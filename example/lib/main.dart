@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:saly_ui_kit/saly_ui_kit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final sharedPref = await SharedPreferences.getInstance();
+
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.green, // Set the status bar's background to transparent
+      statusBarIconBrightness: Brightness.dark, // Use dark icons on a light background
+      statusBarBrightness: Brightness.light, // For iOS, use a light status bar
+    ),
+  );
 
   runApp(
     MaterialApp(
@@ -32,6 +41,11 @@ class MyApp extends StatelessWidget {
         child: Column(
           spacing: 20,
           children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SalyTextInput(hintText: "Some text", readOnly: true, suffixIconAsset: SalyAssets.icons.user),
+            ),
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
