@@ -21,9 +21,11 @@ final class ColorThemeExtension extends ThemeExtension<ColorThemeExtension> {
     required this.statusAccentS1,
     required this.statusAccentS2,
     required this.shadowColor,
+    required this.invalid,
   });
 
   factory ColorThemeExtension.light() => ColorThemeExtension._(
+    invalid: ColorName.invalid,
     shadowColor: ColorName.shadowColor,
     neutralSecondaryS1: ColorName.neutralSecondaryS1,
     neutralSecondaryS2: ColorName.neutralSecondaryS2,
@@ -45,6 +47,7 @@ final class ColorThemeExtension extends ThemeExtension<ColorThemeExtension> {
   );
 
   factory ColorThemeExtension.dark() => ColorThemeExtension._(
+    invalid: ColorName.invalid,
     shadowColor: ColorName.shadowColorDark,
     neutralSecondaryS1: ColorName.neutralSecondaryS1Dark,
     neutralSecondaryS2: ColorName.neutralSecondaryS2Dark,
@@ -65,6 +68,7 @@ final class ColorThemeExtension extends ThemeExtension<ColorThemeExtension> {
     statusAccentS2: ColorName.statusAccentS2Dark,
   );
 
+  final Color invalid;
   final Color shadowColor;
   final Color neutralSecondaryS1;
   final Color neutralSecondaryS2;

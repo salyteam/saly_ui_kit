@@ -15,6 +15,7 @@
     <color name="status_error_s1">#F03964</color>
     <color name="status_error_s2">#FEEBF0</color>
     <color name="status_error_s3">#FFF5F7</color>
+    <color name="invalid">#FF3434</color>
     <color name="status_accent_s1">#4BA762</color>
     <color name="status_accent_s2">#45C465</color>
     <color name="shadow_color">#CCCACA</color>

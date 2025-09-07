@@ -14,6 +14,9 @@ import 'package:flutter/material.dart';
 class ColorName {
   ColorName._();
 
+  /// Color: #FF3434
+  static const Color invalid = Color(0xFFFF3434);
+
   /// Color: #FFFFFF
   static const Color neutralPrimaryS1 = Color(0xFFFFFFFF);
 
