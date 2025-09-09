@@ -45,21 +45,23 @@ class DiscountCard extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: CachedNetworkImage(
-                      imageUrl: imgBackground ?? '',
-                      height: 470,
-                      fit: BoxFit.cover,
-                      placeholder: (_, __) => SizedBox(
-                        height: double.infinity,
-                        width: double.infinity,
-                        child: DecoratedBox(decoration: BoxDecoration(color: context.colors.neutralSecondaryS3)),
-                      ),
-                      errorWidget: (context, _, __) => SizedBox(
-                        height: double.infinity,
-                        width: double.infinity,
-                        child: DecoratedBox(decoration: BoxDecoration(color: context.colors.neutralSecondaryS3)),
+                  AspectRatio(
+                    aspectRatio: 3 / 4,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: CachedNetworkImage(
+                        imageUrl: imgBackground ?? '',
+                        fit: BoxFit.cover,
+                        placeholder: (_, __) => SizedBox(
+                          height: double.infinity,
+                          width: double.infinity,
+                          child: DecoratedBox(decoration: BoxDecoration(color: context.colors.neutralSecondaryS3)),
+                        ),
+                        errorWidget: (context, _, __) => SizedBox(
+                          height: double.infinity,
+                          width: double.infinity,
+                          child: DecoratedBox(decoration: BoxDecoration(color: context.colors.neutralSecondaryS3)),
+                        ),
                       ),
                     ),
                   ),
