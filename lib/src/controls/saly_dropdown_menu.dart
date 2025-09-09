@@ -54,7 +54,7 @@ class _SalyDropDownMenuState<T> extends State<SalyDropDownMenu<T>> {
                 items: widget.items,
                 onSelect: (value) {
                   widget.onChange(value);
-                  // _close();
+                  _close();
                 },
               ),
             ),
