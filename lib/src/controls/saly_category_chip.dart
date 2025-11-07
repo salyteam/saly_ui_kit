@@ -47,8 +47,7 @@ class SalyCategoryChip extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: mainAxisAlignment,
                 children: [
-                  if (leading != null) FittedBox(child: leading),
-                  const SizedBox(width: 8),
+                  if (leading != null) ...[FittedBox(child: leading), const SizedBox(width: 8)],
                   FittedBox(child: Text(title, style: context.fonts.body)),
                 ],
               ),
