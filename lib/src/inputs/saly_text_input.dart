@@ -21,6 +21,7 @@ class SalyTextInput<T> extends StatefulWidget {
     this.autofocus = false,
     this.obscureText = false,
     this.hasError = false,
+    this.isDisabled = false,
     this.showErrors,
     this.onTap,
     this.style,
@@ -42,7 +43,7 @@ class SalyTextInput<T> extends StatefulWidget {
   final void Function(FormControl<T>)? onTap;
   final FocusNode? focusNode;
   final TextStyle? style;
-  final bool readOnly, autofocus, obscureText, hasError;
+  final bool readOnly, autofocus, obscureText, hasError, isDisabled;
   final bool? isValid;
 
   @override
@@ -58,14 +59,14 @@ class _SalyTextInputState extends State<SalyTextInput> {
 
   Color get _borderColor {
     if (_hasFocus) return context.colors.statusInfoS1;
-    if (widget.readOnly) return context.colors.neutralSecondaryS3;
+    if (widget.isDisabled) return context.colors.neutralSecondaryS3;
     if (_controlHasError) return context.colors.statusErrorS1;
     if (widget.isValid == true) return context.colors.statusOkS1;
     return context.colors.neutralSecondaryS3;
   }
 
   Color get _textColor {
-    if (widget.readOnly) return context.colors.neutralSecondaryS6;
+    if (widget.isDisabled) return context.colors.neutralSecondaryS6;
     if (_controlHasError) return context.colors.statusErrorS1;
     if (widget.isValid == true) return context.colors.statusOkS1;
     return context.colors.neutralSecondaryS1;
@@ -77,7 +78,7 @@ class _SalyTextInputState extends State<SalyTextInput> {
   }
 
   Color get _hintTextColor {
-    if (widget.readOnly) return context.colors.neutralSecondaryS4;
+    if (widget.isDisabled) return context.colors.neutralSecondaryS4;
     if (_controlHasError) return context.colors.statusErrorS1;
     return context.colors.neutralSecondaryS4;
   }
@@ -89,7 +90,7 @@ class _SalyTextInputState extends State<SalyTextInput> {
   }
 
   Color get _backgroundColor {
-    if (widget.readOnly) return context.colors.neutralPrimaryS1;
+    if (widget.isDisabled) return context.colors.neutralPrimaryS1;
     if (_controlHasError) return context.colors.statusErrorS2;
     if (widget.isValid == true) return context.colors.statusOkS2;
     if (_hasFocus) return context.colors.statusInfoS2;
@@ -127,7 +128,7 @@ class _SalyTextInputState extends State<SalyTextInput> {
   Widget build(BuildContext context) {
     return SizedBox(
       child: Opacity(
-        opacity: widget.readOnly ? 0.6 : 1.0,
+        opacity: widget.isDisabled ? 0.6 : 1.0,
         child: DecoratedBox(
           decoration: BoxDecoration(
             boxShadow: [
