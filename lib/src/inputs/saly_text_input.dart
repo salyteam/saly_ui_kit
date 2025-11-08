@@ -83,10 +83,9 @@ class _SalyTextInputState extends State<SalyTextInput> {
   }
 
   Color get _suffixIconColor {
-    if (widget.readOnly) return context.colors.neutralSecondaryS4;
     if (_controlHasError) return context.colors.statusErrorS1;
     if (widget.isValid == true) return context.colors.statusOkS1;
-    return context.colors.neutralSecondaryS2;
+    return context.colors.neutralSecondaryS4;
   }
 
   Color get _backgroundColor {
