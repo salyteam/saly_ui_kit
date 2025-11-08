@@ -77,11 +77,6 @@ class SalyButton extends StatelessWidget {
     };
   }
 
-  Color _splashColor(BuildContext context) => switch (_type) {
-    SalyButtonType.primary => context.colors.statusAccentS2,
-    _ => context.colors.neutralSecondaryS4,
-  };
-
   @override
   Widget build(BuildContext context) {
     return SizedBox.fromSize(
@@ -94,6 +89,7 @@ class SalyButton extends StatelessWidget {
             color: isDisabled ? _backgroundDisabledColor(context) : _backgroundColor(context),
             borderRadius: BorderRadius.circular(radius),
             boxShadow: shadow ?? [BoxShadow(color: _backgroundColor(context).withValues(alpha: 0.1), blurRadius: 16)],
+            border: _type == SalyButtonType.ghost ? Border.all(color: context.colors.neutralSecondaryS3) : null,
           ),
           child: Padding(
             padding: size != null ? const EdgeInsets.all(0) : padding,

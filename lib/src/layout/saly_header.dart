@@ -62,6 +62,7 @@ abstract class SalyHeader extends StatelessWidget implements PreferredSizeWidget
                 SalyButton.ghost(
                   radius: 52,
                   size: Size.square(52),
+                  shadow: [BoxShadow(color: context.colors.shadowColor.withValues(alpha: .1), blurRadius: 16)],
                   onTap: onTapBack ?? () => Navigator.pop(context),
                   child: SalyAssets.icons.arrowLeft.svg(
                     colorFilter: SalyTheme.of(context).isDartTheme
