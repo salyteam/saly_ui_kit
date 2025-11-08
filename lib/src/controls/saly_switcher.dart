@@ -38,7 +38,7 @@ class _SalySwitcherState extends State<SalySwitcher> {
             alignment: Alignment.center,
             children: [
               AnimatedContainer(
-                color: _value ? context.colors.neutralSecondaryS3 : context.colors.statusAccentS1,
+                color: _value ? context.colors.statusAccentS1 : context.colors.neutralSecondaryS3,
                 duration: _animationDuration,
               ),
               Positioned(
