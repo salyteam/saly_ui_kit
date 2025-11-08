@@ -3,15 +3,17 @@ import 'package:pinput/pinput.dart';
 import 'package:saly_ui_kit/saly_ui_kit.dart';
 
 class OtpField extends StatelessWidget {
-  const OtpField({this.onCompleted, this.onChange, this.length = 4, this.hasError = false, super.key});
+  const OtpField({this.controller, this.onCompleted, this.onChange, this.length = 4, this.hasError = false, super.key});
 
   final int length;
   final bool hasError;
   final void Function(String value)? onChange;
   final void Function(String value)? onCompleted;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) => Pinput(
+    controller: controller,
     length: length,
     onChanged: onChange,
     onCompleted: onCompleted,
