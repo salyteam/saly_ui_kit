@@ -52,6 +52,14 @@ class _SalyLikeButtonState extends State<SalyLikeButton> with TickerProviderStat
   }
 
   @override
+  void didUpdateWidget(covariant SalyLikeButton oldWidget) {
+    if (oldWidget.initValue != widget.initValue) {
+      _isSelect = widget.initValue;
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SizedBox.square(
       dimension: widget.size,
