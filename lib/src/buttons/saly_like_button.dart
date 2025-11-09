@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:saly_ui_kit/saly_ui_kit.dart';
 
 class SalyLikeButton extends StatefulWidget {
-  const SalyLikeButton({this.onChange, this.initValue = false, this.size = 52, super.key});
+  const SalyLikeButton({this.onTap, this.onChange, this.initValue = false, this.size = 52, super.key});
 
   final bool initValue;
   final void Function(bool)? onChange;
+  final VoidCallback? onTap;
   final double size;
 
   @override
@@ -47,6 +48,7 @@ class _SalyLikeButtonState extends State<SalyLikeButton> with TickerProviderStat
       widget.onChange?.call(_isSelect);
       _animationController.forward(from: 0.0);
     }
+    widget.onTap?.call();
   }
 
   @override

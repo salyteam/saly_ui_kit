@@ -14,6 +14,7 @@ class DiscountCard extends StatelessWidget {
     required this.name,
     this.onTap,
     this.onFavoriteTap,
+    this.onFavoriteChange,
     this.category,
     this.imgBackground,
     this.companyImg,
@@ -25,8 +26,8 @@ class DiscountCard extends StatelessWidget {
   final String? category, description, imgBackground, companyImg;
   final int sale;
   final bool isLiked;
-  final void Function(bool value)? onFavoriteTap;
-  final VoidCallback? onTap;
+  final void Function(bool value)? onFavoriteChange;
+  final VoidCallback? onTap, onFavoriteTap;
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +75,7 @@ class DiscountCard extends StatelessWidget {
                       imagePath: companyImg,
                       isLiked: isLiked,
                       onFavoriteTap: onFavoriteTap,
+                      onFavoriteChange: onFavoriteChange,
                     ),
                   ),
                   Positioned(
@@ -105,12 +107,19 @@ class DiscountCard extends StatelessWidget {
 }
 
 class _LogoBanner extends StatelessWidget {
-  const _LogoBanner({required this.isLiked, required this.name, this.onFavoriteTap, this.imagePath});
+  const _LogoBanner({
+    required this.isLiked,
+    required this.name,
+    this.onFavoriteChange,
+    this.onFavoriteTap,
+    this.imagePath,
+  });
 
   final String name;
   final String? imagePath;
   final bool isLiked;
-  final void Function(bool value)? onFavoriteTap;
+  final void Function(bool value)? onFavoriteChange;
+  final VoidCallback? onFavoriteTap;
 
   @override
   Widget build(BuildContext context) {
@@ -146,7 +155,7 @@ class _LogoBanner extends StatelessWidget {
                 ],
               ),
             ),
-            SalyLikeButton(initValue: isLiked, onChange: onFavoriteTap, size: 59),
+            SalyLikeButton(initValue: isLiked, onChange: onFavoriteChange, onTap: onFavoriteTap, size: 59),
           ],
         ),
       ),

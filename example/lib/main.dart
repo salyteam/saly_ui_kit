@@ -78,6 +78,13 @@ class MyApp extends StatelessWidget {
                             "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore ma",
                         sale: 50,
                         name: "Lorem ipsum",
+                        onFavoriteChange: (value) {
+                          print("value $value");
+                        },
+
+                        onFavoriteTap: () {
+                          print('Tap');
+                        },
                       ),
                   ],
                 ),
