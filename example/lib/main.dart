@@ -41,6 +41,8 @@ class MyApp extends StatelessWidget {
         child: Column(
           spacing: 20,
           children: [
+            SalyLikeButton(initValue: false, size: 100),
+
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: SalyTextInput(hintText: "Some text", readOnly: true, suffixIconAsset: SalyAssets.icons.user),

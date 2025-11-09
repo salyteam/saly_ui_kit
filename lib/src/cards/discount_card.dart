@@ -146,7 +146,7 @@ class _LogoBanner extends StatelessWidget {
                 ],
               ),
             ),
-            if (onFavoriteTap != null) SalyLikeButton(initValue: isLiked, onTap: onFavoriteTap!, size: 59),
+            SalyLikeButton(initValue: isLiked, onChange: onFavoriteTap, size: 59),
           ],
         ),
       ),
