@@ -14,6 +14,8 @@ class SalyButton extends StatelessWidget {
     this.padding = const EdgeInsets.symmetric(vertical: 14, horizontal: 65),
     super.key,
   }) : _type = SalyButtonType.primary,
+       backgroundColor = null,
+       disableColor = null,
        assert(child != null || title != null);
 
   const SalyButton.secondary({
@@ -27,6 +29,8 @@ class SalyButton extends StatelessWidget {
     this.padding = const EdgeInsets.symmetric(vertical: 14, horizontal: 65),
     super.key,
   }) : _type = SalyButtonType.secondary,
+       backgroundColor = null,
+       disableColor = null,
        assert(child != null || title != null);
 
   const SalyButton.ghost({
@@ -40,6 +44,23 @@ class SalyButton extends StatelessWidget {
     this.padding = const EdgeInsets.symmetric(vertical: 14, horizontal: 65),
     super.key,
   }) : _type = SalyButtonType.ghost,
+       backgroundColor = null,
+       disableColor = null,
+       assert(child != null || title != null);
+
+  const SalyButton.custom({
+    this.title,
+    this.onTap,
+    this.child,
+    this.textStyle,
+    this.radius = 50,
+    this.size,
+    this.backgroundColor,
+    this.disableColor,
+    this.shadow,
+    this.padding = const EdgeInsets.symmetric(vertical: 14, horizontal: 65),
+    super.key,
+  }) : _type = SalyButtonType.custom,
        assert(child != null || title != null);
 
   final VoidCallback? onTap;
@@ -51,6 +72,7 @@ class SalyButton extends StatelessWidget {
   final SalyButtonType _type;
   final List<BoxShadow>? shadow;
   final Size? size;
+  final Color? backgroundColor, disableColor;
 
   bool get isDisabled => onTap == null;
 
@@ -58,12 +80,14 @@ class SalyButton extends StatelessWidget {
     SalyButtonType.primary => context.colors.statusAccentS1,
     SalyButtonType.secondary => context.colors.neutralSecondaryS2,
     SalyButtonType.ghost => context.colors.neutralPrimaryS1,
+    SalyButtonType.custom => backgroundColor ?? context.colors.statusAccentS1,
   };
 
   Color _backgroundDisabledColor(BuildContext context) => switch (_type) {
     SalyButtonType.primary => context.colors.statusAccentS1.withValues(alpha: 0.7),
     SalyButtonType.secondary => context.colors.neutralSecondaryS2.withValues(alpha: 0.7),
     SalyButtonType.ghost => context.colors.neutralPrimaryS1,
+    SalyButtonType.custom => disableColor ?? context.colors.statusAccentS1.withValues(alpha: 0.7),
   };
 
   Color _textColor(BuildContext context) {
