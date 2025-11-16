@@ -19,13 +19,14 @@ class DiscountCard extends StatelessWidget {
     this.imgBackground,
     this.companyImg,
     this.isLiked = false,
+    this.isShowLike = true,
     super.key,
   });
 
   final String name;
   final String? category, description, imgBackground, companyImg;
   final int sale;
-  final bool isLiked;
+  final bool isLiked, isShowLike;
   final void Function(bool value)? onFavoriteChange;
   final VoidCallback? onTap, onFavoriteTap;
 
@@ -74,6 +75,7 @@ class DiscountCard extends StatelessWidget {
                       name: name,
                       imagePath: companyImg,
                       isLiked: isLiked,
+                      isShowLike: isShowLike,
                       onFavoriteTap: onFavoriteTap,
                       onFavoriteChange: onFavoriteChange,
                     ),
@@ -110,6 +112,7 @@ class _LogoBanner extends StatelessWidget {
   const _LogoBanner({
     required this.isLiked,
     required this.name,
+    required this.isShowLike,
     this.onFavoriteChange,
     this.onFavoriteTap,
     this.imagePath,
@@ -117,7 +120,7 @@ class _LogoBanner extends StatelessWidget {
 
   final String name;
   final String? imagePath;
-  final bool isLiked;
+  final bool isLiked, isShowLike;
   final void Function(bool value)? onFavoriteChange;
   final VoidCallback? onFavoriteTap;
 
@@ -155,7 +158,8 @@ class _LogoBanner extends StatelessWidget {
                 ],
               ),
             ),
-            SalyLikeButton(initValue: isLiked, onChange: onFavoriteChange, onTap: onFavoriteTap, size: 59),
+            if (isShowLike)
+              SalyLikeButton(initValue: isLiked, onChange: onFavoriteChange, onTap: onFavoriteTap, size: 59),
           ],
         ),
       ),
